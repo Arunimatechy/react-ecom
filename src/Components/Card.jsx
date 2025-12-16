@@ -53,7 +53,7 @@ const Card = ({ product }) => {
   };
 
   return (
-    <div className="shadow-lg rounded-xl p-4 bg-white w-80 cursor-pointer hover:shadow-2xl hover:scale-105 transform transition duration-300">
+    <div className="shadow-lg rounded-xl p-4 bg-white  cursor-pointer hover:shadow-2xl hover:scale-105 transform transition duration-300">
       {isEditing ? (
         <div className="flex flex-col gap-3">
           <input
