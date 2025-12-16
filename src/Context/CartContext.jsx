@@ -50,7 +50,7 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  // ✅ ADD THIS FUNCTION
+
   const clearCart = () => {
     setCart([]);
   };
