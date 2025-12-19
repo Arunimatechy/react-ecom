@@ -18,7 +18,7 @@ const Orders = () => {
 
   const userOrders = user.isAdmin
     ? orders
-    : orders.filter(order => order.userId === user.id);
+    : orders.filter((order) => order.userId === user.id);
 
   if (userOrders.length === 0) {
     return (
@@ -30,7 +30,7 @@ const Orders = () => {
 
   return (
     <div className="max-w-7xl mx-auto mt-10 px-4">
-      <h2 className="text-3xl font-bold mb-8 text-gray-800">
+      <h2 className="text-3xl font-bold mb-8 text-cyan-950">
         {user.isAdmin ? "All Orders" : "My Orders"}
       </h2>
 
@@ -43,33 +43,38 @@ const Orders = () => {
         return (
           <div
             key={order.id}
-            className="mb-10 bg-white rounded-xl shadow-sm border border-gray-200"
+            className="mb-10 bg-white rounded-xl shadow-md border border-gray-200"
           >
-          
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 p-5 bg-gray-50 border-b text-sm font-semibold text-gray-700">
+            {/* ORDER HEADER */}
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 p-5 bg-cyan-950 text-amber-50 text-sm font-semibold rounded-t-xl">
               <div>
-                <p className="text-xs text-gray-500">ORDER ID</p>
+                <p className="text-xs text-amber-300">ORDER ID</p>
                 <p>{order.id}</p>
               </div>
+
               <div>
-                <p className="text-xs text-gray-500">TOTAL</p>
+                <p className="text-xs text-amber-300">TOTAL</p>
                 <p>₹{order.total}</p>
               </div>
+
               <div>
-                <p className="text-xs text-gray-500">ITEMS</p>
+                <p className="text-xs text-amber-300">ITEMS</p>
                 <p>{totalItems}</p>
               </div>
+
               <div>
-                <p className="text-xs text-gray-500">PAYMENT</p>
+                <p className="text-xs text-amber-300">PAYMENT</p>
                 <p>{order.payment}</p>
               </div>
+
               <div>
-                <p className="text-xs text-gray-500">DATE</p>
+                <p className="text-xs text-amber-300">DATE</p>
                 <p>{new Date(order.date).toLocaleDateString()}</p>
               </div>
             </div>
 
-             {user.isAdmin && (
+            {/* ADMIN DELETE */}
+            {user.isAdmin && (
               <div className="flex justify-end px-5 pt-4">
                 <button
                   onClick={() => deleteOrder(order.id)}
@@ -80,7 +85,7 @@ const Orders = () => {
               </div>
             )}
 
-          
+            {/* ITEMS */}
             <div className="divide-y">
               {order.items.map((item, index) => (
                 <div
@@ -106,10 +111,12 @@ const Orders = () => {
               ))}
             </div>
 
-           
-            <div className="bg-gray-50 px-5 py-4 flex justify-between items-center font-semibold text-gray-800">
+         
+            <div className="bg-gray-50 px-5 py-4 flex justify-between items-center font-semibold text-cyan-950 rounded-b-xl">
               <span>Total Payable</span>
-              <span className="text-lg">₹{order.total}</span>
+              <span className="text-lg text-amber-600">
+                ₹{order.total}
+              </span>
             </div>
           </div>
         );

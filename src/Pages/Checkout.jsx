@@ -1,6 +1,4 @@
 
-
-
 import React, { useContext, useState } from "react";
 import { CartContext } from "../Context/CartContext";
 import { OrderContext } from "../Context/OrderContext";
@@ -75,9 +73,9 @@ const Checkout = () => {
   return (
     <form
       onSubmit={placeOrder}
-      className="max-w-xl mx-auto mt-10 bg-white rounded-xl shadow-lg border border-gray-200 p-6 md:p-8"
+      className="max-w-xl mx-auto mt-10 bg-white rounded-xl shadow-md border border-gray-200 p-6 md:p-8"
     >
-      <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+      <h2 className="text-2xl font-bold mb-6 text-center text-cyan-950">
         Delivery Address
       </h2>
 
@@ -87,7 +85,7 @@ const Checkout = () => {
         placeholder="Full Name"
         value={form.name}
         onChange={handleChange}
-        className="border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 p-3 w-full mb-4 rounded-md outline-none"
+        className="border border-gray-300 focus:border-cyan-700 focus:ring-2 focus:ring-cyan-100 p-3 w-full mb-4 rounded-md outline-none"
       />
 
       <textarea
@@ -95,7 +93,7 @@ const Checkout = () => {
         placeholder="Full Address"
         value={form.address}
         onChange={handleChange}
-        className="border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 p-3 w-full mb-4 rounded-md outline-none resize-none"
+        className="border border-gray-300 focus:border-cyan-700 focus:ring-2 focus:ring-cyan-100 p-3 w-full mb-4 rounded-md outline-none resize-none"
         rows="3"
       />
 
@@ -106,7 +104,7 @@ const Checkout = () => {
           placeholder="City"
           value={form.city}
           onChange={handleChange}
-          className="border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 p-3 rounded-md outline-none"
+          className="border border-gray-300 focus:border-cyan-700 focus:ring-2 focus:ring-cyan-100 p-3 rounded-md outline-none"
         />
 
         <input
@@ -115,7 +113,7 @@ const Checkout = () => {
           placeholder="State"
           value={form.state}
           onChange={handleChange}
-          className="border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 p-3 rounded-md outline-none"
+          className="border border-gray-300 focus:border-cyan-700 focus:ring-2 focus:ring-cyan-100 p-3 rounded-md outline-none"
         />
       </div>
 
@@ -126,7 +124,7 @@ const Checkout = () => {
           placeholder="Phone Number"
           value={form.phonenumber}
           onChange={handleChange}
-          className="border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 p-3 rounded-md outline-none"
+          className="border border-gray-300 focus:border-cyan-700 focus:ring-2 focus:ring-cyan-100 p-3 rounded-md outline-none"
         />
 
         <input
@@ -135,13 +133,13 @@ const Checkout = () => {
           placeholder="Pincode"
           value={form.pincode}
           onChange={handleChange}
-          className="border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 p-3 rounded-md outline-none"
+          className="border border-gray-300 focus:border-cyan-700 focus:ring-2 focus:ring-cyan-100 p-3 rounded-md outline-none"
         />
       </div>
 
-      {/* Payment Options */}
+      {/* PAYMENT */}
       <div className="mt-6 border-t pt-4">
-        <h3 className="font-semibold mb-3 text-gray-700">
+        <h3 className="font-semibold mb-3 text-cyan-950">
           Payment Method
         </h3>
 
@@ -152,7 +150,7 @@ const Checkout = () => {
             value="COD"
             checked={form.payment === "COD"}
             onChange={handleChange}
-            className="accent-blue-600"
+            className="accent-amber-500"
           />
           <span>Cash on Delivery</span>
         </label>
@@ -164,20 +162,20 @@ const Checkout = () => {
             value="UPI"
             checked={form.payment === "UPI"}
             onChange={handleChange}
-            className="accent-blue-600"
+            className="accent-amber-500"
           />
           <span>UPI / Online Payment</span>
         </label>
       </div>
 
-      <div className="mt-6 flex justify-between items-center text-lg font-bold text-gray-800">
+      <div className="mt-6 flex justify-between items-center text-lg font-bold text-cyan-950">
         <span>Total Amount</span>
-        <span>₹{total}</span>
+        <span className="text-amber-600">₹{total}</span>
       </div>
 
       <button
         type="submit"
-        className="mt-6 bg-blue-600 hover:bg-blue-700 text-white w-full p-3 rounded-lg font-semibold tracking-wide transition"
+        className="mt-6 bg-cyan-950 hover:bg-cyan-900 text-amber-50 w-full p-3 rounded-lg font-semibold tracking-wide transition"
       >
         PLACE ORDER
       </button>
